@@ -1,80 +1,47 @@
-const movies = [
-    {
-      id: 1,
-      title: "Sonic the Hedgehog 3",
-      rating: 86,
-      audience: 95,
-      image: "image/shawshank.png",
-      key: "sonic",
-      summary: "Sonic the Hedgehog is back in an epic adventure where he teams up with friends to save the multiverse.",
-      reviews: [
-        { reviewer: "John Doe", comment: "A visual delight with heart-pounding action and great character moments." },
-        { reviewer: "Jane Smith", comment: "The humor is spot-on, and the story is engaging." }
-      ]
-    },
-    {
-      id: 2,
-      title: "Nosferatu",
-      rating: 85,
-      audience: 73,
-      image: "image/shawshank.png",
-      key: "nosferatu",
-      summary: "A haunting tale of terror and suspense with Nosferatu as the central figure.",
-      reviews: [
-        { reviewer: "Alice Johnson", comment: "A chilling masterpiece of horror cinema." },
-        { reviewer: "Bob Lee", comment: "Nosferatu remains timeless and iconic." }
-      ]
-    },
-    {
-      id: 3,
-      title: "Nosferatu",
-      rating: 85,
-      audience: 73,
-      image: "image/shawshank.png",
-      key: "nosferatu",
-      summary: "A haunting tale of terror and suspense with Nosferatu as the central figure.",
-      reviews: [
-        { reviewer: "Alice Johnson", comment: "A chilling masterpiece of horror cinema." },
-        { reviewer: "Bob Lee", comment: "Nosferatu remains timeless and iconic." }
-      ]
-    },
-    {
-      id: 4,
-      title: "Nosferatu",
-      rating: 85,
-      audience: 73,
-      image: "image/shawshank.png",
-      key: "nosferatu",
-      summary: "A haunting tale of terror and suspense with Nosferatu as the central figure.",
-      reviews: [
-        { reviewer: "Alice Johnson", comment: "A chilling masterpiece of horror cinema." },
-        { reviewer: "Bob Lee", comment: "Nosferatu remains timeless and iconic." }
-      ]
+// Function to fetch movies from the backend
+async function fetchMovies() {
+  try {
+    const response = await fetch("http://localhost:8080/api/v1/movies"); // Replace with your actual API URL if necessary
+    if (!response.ok) {
+      throw new Error("Failed to fetch movies from the backend");
     }
-    
-  ];
-  
-  // Dynamically render movie cards with links
-  movies.forEach(movie => {
+    const movies = await response.json();
+    renderMovies(movies);
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+  }
+}
+
+// Function to render movies dynamically
+function renderMovies(movies) {
+  const movieList = document.getElementById("movie-list");
+  movieList.innerHTML = ""; // Clear any existing content
+
+  movies.forEach((movie) => {
     const movieCard = document.createElement("div");
     movieCard.className = "movie-card";
+
     movieCard.innerHTML = `
-      <img src="${movie.image}" alt="${movie.title}">
+      <img src="${movie.poster}" alt="${movie.title}">
       <div class="info">
         <h3>${movie.title}</h3>
         <div class="rating">
-          <span class="${movie.rating >= 60 ? 'fresh' : 'rotten'}">🍅 ${movie.rating}%</span>
-          | 🎥 ${movie.audience}%
+          <span>🎥 Release Date: ${movie.releaseDate}</span>
         </div>
-        <a href="review.html?movie=${movie.key}" class="review-button">
+        <a href="review.html?movie=${movie.imdbId}" class="review-button">
           <span class="review-icon">📝</span> Read Reviews
+        </a>
+        <a href="${movie.trailerLink}" target="_blank" class="play-button">
+          <span class="play-icon">▶️</span> Watch Trailer
         </a>
       </div>
     `;
-    document.getElementById("movie-list").appendChild(movieCard);
+
+    movieList.appendChild(movieCard);
   });
-  
-  // Light/Dark Mode Toggle Logic
+}
+
+// Light/Dark Mode Toggle Logic
 const modeToggle = document.getElementById("mode-toggle");
 const body = document.body;
 
@@ -97,3 +64,6 @@ modeToggle.addEventListener("click", () => {
     localStorage.setItem("theme", "light");
   }
 });
+
+// Fetch and render movies on page load
+fetchMovies();

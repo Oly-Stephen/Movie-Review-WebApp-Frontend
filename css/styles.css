@@ -1,148 +1,182 @@
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  /* Light Mode Styles */
-  body {
-    background-color: #f8f8f8;
-    color: #333;
-  }
-  
-  header {
-    text-align: center;
-    background-color: #222;
-    color: white;
-    padding: 1rem 0;
-    transition: background-color 0.3s;
-  }
-  
-  /* Dark Mode Styles */
-  body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-  }
-  
-  header.dark-mode {
-    background-color: #1e1e1e;
-  }
-  
-  /* Main Content Grid */
-  main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    padding: 2rem;
-  }
-  
-  /* Movie Card Styles */
-  .movie-card {
-    background: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s, border-color 0.3s;
-  }
-  
-  body.dark-mode .movie-card {
-    background-color: #1e1e1e;
-    border-color: #444;
-  }
-  
-  .movie-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .movie-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-  }
-  
-  .movie-card .info {
-    padding: 1rem;
-  }
-  
-  .movie-card .info h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: inherit;
-  }
-  
-  /* Rating Styles */
-  .movie-card .info .rating {
-    display: flex;
-    align-items: center;
-    margin-top: 0.5rem;
-  }
-  
-  .movie-card .info .rating span {
-    margin-right: 5px;
-    font-weight: bold;
-  }
-  
-  .movie-card .info .rating .fresh {
-    color: green;
-  }
-  
-  .movie-card .info .rating .rotten {
-    color: red;
-  }
-  
-  /* Read Reviews Button */
-  .review-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    color: #0073e6;
-    border: 1px solid #0073e6;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin-top: 1rem;
-  }
-  
-  body.dark-mode .review-button {
-    background-color: #1e1e1e;
-    color: #80d8ff;
-    border-color: #80d8ff;
-  }
-  
-  .review-button:hover {
-    background-color: #0073e6;
-    color: white;
-  }
-  
-  body.dark-mode .review-button:hover {
-    background-color: #80d8ff;
-  }
-  
-  .review-button .review-icon {
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
-  }
-  
-  /* Toggle Button */
-  .toggle-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: inherit;
-  }
-  
-  .toggle-button:hover {
-    opacity: 0.8;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode Styles */
+body {
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  background-color: #222;
+  color: white;
+  padding: 1rem 0;
+  transition: background-color 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+header.dark-mode {
+  background-color: #1e1e1e;
+}
+
+/* Main Content Grid */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+/* Movie Card Styles */
+.movie-card {
+  position: relative; /* Make the movie card container relative */
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s, border-color 0.3s;
+}
+
+body.dark-mode .movie-card {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movie-card .info {
+  padding: 1rem;
+}
+
+.movie-card .info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: inherit;
+}
+
+/* Rating Styles */
+.movie-card .info .rating {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.movie-card .info .rating span {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+/* Read Reviews Button */
+.review-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #0073e6;
+  border: 1px solid #0073e6;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 1rem;
+}
+
+body.dark-mode .review-button {
+  background-color: #1e1e1e;
+  color: #80d8ff;
+  border-color: #80d8ff;
+}
+
+.review-button:hover {
+  background-color: #0073e6;
+  color: white;
+}
+
+body.dark-mode .review-button:hover {
+  background-color: #80d8ff;
+}
+
+.review-button .review-icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Toggle Button */
+.toggle-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+.toggle-button:hover {
+  opacity: 0.8;
+}
+
+/* Play Button */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 115, 230, 0.8); /* Semi-transparent blue */
+  color: white;
+  border: 1px solid #0073e6;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  opacity: 0;
+  pointer-events: none; /* Make the button invisible until hover */
+  z-index: 1; /* Make sure it's on top */
+}
+
+/* Make the Play Button visible on hover */
+.movie-card:hover .play-button {
+  opacity: 1;
+  pointer-events: all; /* Allow click */
+}
+
+body.dark-mode .play-button {
+  background-color: rgba(30, 30, 30, 0.8);
+  color: #80d8ff;
+  border-color: #80d8ff;
+}
+
+/* Play Icon */
+.play-icon {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+}

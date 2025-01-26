@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -19,6 +19,10 @@ header {
   transition: background-color 0.3s;
 }
 
+.logo {
+  height: 50px;
+}
+
 /* Dark Mode Styles */
 body.dark-mode {
   background-color: #121212;
@@ -33,16 +37,16 @@ header.dark-mode {
 main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 2rem;
 }
 
 /* Movie Card Styles */
 .movie-card {
-  position: relative; /* Make the movie card container relative */
+  position: relative;
   background: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, background-color 0.3s, border-color 0.3s;
@@ -144,11 +148,11 @@ body.dark-mode .review-button:hover {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center the button */
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 115, 230, 0.8); /* Semi-transparent blue */
+  background-color: rgba(0, 115, 230, 0.8);
   color: white;
   border: 1px solid #0073e6;
   padding: 0.5rem 1rem;
@@ -159,14 +163,13 @@ body.dark-mode .review-button:hover {
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   opacity: 0;
-  pointer-events: none; /* Make the button invisible until hover */
-  z-index: 1; /* Make sure it's on top */
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* Make the Play Button visible on hover */
 .movie-card:hover .play-button {
   opacity: 1;
-  pointer-events: all; /* Allow click */
+  pointer-events: all;
 }
 
 body.dark-mode .play-button {
@@ -175,7 +178,6 @@ body.dark-mode .play-button {
   border-color: #80d8ff;
 }
 
-/* Play Icon */
 .play-icon {
   margin-right: 0.5rem;
   font-size: 1.5rem;

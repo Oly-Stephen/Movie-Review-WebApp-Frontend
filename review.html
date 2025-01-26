@@ -3,22 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie List</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Movie Reviews</title>
+    <link rel="stylesheet" href="css/review.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
-    <!-- Header -->
     <header>
-      <h1>Movie List</h1>
-      <button class="toggle-button" onclick="toggleDarkMode()">🌙</button>
+      <a href="index.html">
+        <img src="image/logo.png" alt="Movie Logo" class="logo" />
+      </a>
+      <button id="mode-toggle" class="toggle-button">🌞</button>
     </header>
 
-    <!-- Main Content -->
-    <main>
-      <div id="movie-list"></div>
-      <!-- Movie cards will be rendered here -->
+    <main id="review-container">
+      <div id="movie-details">
+        <h1 id="movie-title"></h1>
+        <img id="movie-poster" src="" alt="Movie Poster" />
+        <p id="movie-release-date"></p>
+        <div id="movie-genres"></div>
+        <div id="movie-backdrops" class="backdrops-grid"></div>
+      </div>
+
+      <div id="reviews">
+        <h2>Reviews</h2>
+        <div id="existing-reviews"></div>
+        <form id="add-review-form">
+          <textarea
+            id="review-text"
+            placeholder="Write your review..."
+            required
+          ></textarea>
+          <button type="submit">Submit Review</button>
+        </form>
+      </div>
     </main>
 
-    <script src="js/scripts.js"></script>
+    <!-- Backdrop Pop-up Modal -->
+    <div id="backdrop-modal" class="modal">
+      <span class="close-modal">&times;</span>
+      <img id="modal-backdrop" src="" alt="Backdrop" class="modal-content" />
+      <button id="prev-backdrop" class="nav-button">&#10094;</button>
+      <button id="next-backdrop" class="nav-button">&#10095;</button>
+    </div>
+
+    <script src="js/review.js"></script>
   </body>
 </html>

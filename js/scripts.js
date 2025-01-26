@@ -1,7 +1,7 @@
 // Function to fetch movies from the backend
 async function fetchMovies() {
   try {
-    const response = await fetch("http://localhost:8080/api/v1/movies"); // Replace with your actual API URL if necessary
+    const response = await fetch("http://localhost:8080/api/v1/movies");
     if (!response.ok) {
       throw new Error("Failed to fetch movies from the backend");
     }
@@ -29,7 +29,7 @@ function renderMovies(movies) {
           <span>🎥 Release Date: ${movie.releaseDate}</span>
         </div>
         <a href="review.html?movie=${movie.imdbId}" class="review-button">
-          <span class="review-icon">📝</span> Read Reviews
+          <span class="review-icon">📝</span> Reviews
         </a>
         <a href="${movie.trailerLink}" target="_blank" class="play-button">
           <span class="play-icon">▶️</span> Watch Trailer

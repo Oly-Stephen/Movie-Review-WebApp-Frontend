@@ -1,7 +1,7 @@
 // Function to fetch movie details
 async function fetchMovieDetails(movieId) {
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/movies/${movieId}`);
+    const response = await fetch(`https://movie-review-8hdg.onrender.com/api/v1/movies/${movieId}`);
     if (!response.ok) {
       throw new Error("Failed to fetch movie details");
     }
@@ -83,7 +83,7 @@ function openModal(backdrops, currentIndex) {
 // Function to fetch and render reviews
 async function fetchReviews(movieId) {
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/reviews/movie/${movieId}`);
+    const response = await fetch(`https://movie-review-8hdg.onrender.com/api/v1/reviews/movie/${movieId}`);
     if (!response.ok) {
       throw new Error("Failed to fetch reviews");
     }
@@ -121,7 +121,7 @@ document.getElementById("add-review-form").addEventListener("submit", async (eve
 
   try {
     // Submit the new review
-    const createResponse = await fetch(`http://localhost:8080/api/v1/reviews`, {
+    const createResponse = await fetch(`https://movie-review-8hdg.onrender.com/api/v1/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

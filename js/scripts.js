@@ -1,7 +1,7 @@
 // Function to fetch movies from the backend
 async function fetchMovies() {
   try {
-    const response = await fetch("http://localhost:8080/api/v1/movies");
+    const response = await fetch("https://movie-review-8hdg.onrender.com/api/v1/movies");
     if (!response.ok) {
       throw new Error("Failed to fetch movies from the backend");
     }
